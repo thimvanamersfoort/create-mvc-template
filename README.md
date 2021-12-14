@@ -7,6 +7,20 @@ Creates a blank NodeJS MVC-based file template, with included configuration file
 3. Paste file contents in new files (maybe with powershell commands)
 4. Create file model
 
+### To-Do:
+- [ ] Map *prompts* response to usable array
+- [ ] Copying files to location --> Write file or copy?
 ### Add-ons:
+
+- TailwindCSS config file
+- Snowpack config file
+- Nodemon config file
+- Add `.gitattributes` file
+- Add `.gitignore` file
+- Add `README.md` file
 - Init Git repository
 - Init NPM
+### Dependencies:
+- `shelljs`
+- `prompts`
+

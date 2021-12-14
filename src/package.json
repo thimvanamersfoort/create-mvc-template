@@ -2,7 +2,7 @@
   "name": "create-mvc-template",
   "version": "1.0.0",
   "description": "Creates a blank NodeJS MVC-based file template. With included custom config files.",
-  "main": "app.js",  
+  "main": "app.js",
   "bin": {
     "git-credential-editor": "./app.js"
   },
@@ -25,10 +25,21 @@
     "url": "https://github.com/thimvanamersfoort/create-mvc-template/issues"
   },
   "homepage": "https://github.com/thimvanamersfoort/create-mvc-template#readme",
-
   "pkg": {
     "scripts": "./*.js",
-    "assets": ["./config/*", "./config"],
+    "assets": [
+      "./config/*",
+      "./config"
+    ],
+    "targets": [
+      "latest-linux-x64",
+      "latest-win-x64",
+      "latest-macos-x64"
+    ],
     "outputPath": "../dist"
+  },
+  "dependencies": {
+    "prompts": "^2.4.0",
+    "shelljs": "^0.8.4"
   }
 }
