@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const shell = require('shelljs');
 const prompts = require('prompts');
+const chalk = require('chalk');
 
 (async () => {
 
@@ -40,30 +41,43 @@ const prompts = require('prompts');
         break;
 
       case 'gitattributes':
+        var gitattributes = shell.cat(__dirname + '/config/.gitignore');
+        gitattributes = gitattributes.stdout;
+
         break;
 
       case 'gitignore':
+        var gitignore = shell.cat(__dirname + '/config/.gitignore');
+        gitignore = gitignore.stdout;
+
         break;
 
       case 'readme':
         break;
 
       case 'initgit':
+        console.log('\r\n' + chalk.greenBright('√') + chalk.white.bold(' Message from Git:'));
+
+        if(shell.exec('git init').code !== 0) {
+          console.log(chalk.red.bold('Error initialising Git repo'));
+        }
         break;
 
       case 'initnpm':
+        console.log('\r\n' + chalk.greenBright('√') + chalk.white.bold(' Message from NPM:'));
+
+        if(shell.exec('npm init -y').code !== 0){
+          console.log(chalk.red.bold('Error initialising NPM package'));
+        }
         break;
 
     }
   });
 
-  shell.mkdir([
+  shell.mkdir('-p', [
     './views',
-    './assets',
-    './assets/lib',
-    './assets/js',
-    './assets/css',
-    './assets/img',
+    './assets/lib', './assets/js',
+    './assets/css', './assets/img',
     './models',
     './controllers',
     './routers'
