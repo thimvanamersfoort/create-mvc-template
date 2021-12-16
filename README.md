@@ -8,7 +8,7 @@ Creates a blank NodeJS MVC-based file template, with included configuration file
 4. Create file model
 
 ### To-Do:
-- [ ] Map *prompts* response to usable array
+- [x] Map *prompts* response to usable array
 - [ ] Copying files to location --> Write file or copy?
 ### Add-ons:
 

@@ -23,44 +23,50 @@ const prompts = require('prompts');
     instructions: false,
   }
   
-  const response = await prompts(question);
+  var response = await prompts(question);
+  response = response.includes;
 
   response.forEach(element => {
     
     switch(element) {
 
       case 'tailwindcss':
-        console.log(`tailwindcss`);
         break;
 
       case 'snowpack':
-        console.log(`snowpack`);
         break;
 
       case 'nodemon':
-        console.log(`nodemon`);
         break;
 
       case 'gitattributes':
-        console.log(`gitattributes`);
         break;
 
       case 'gitignore':
-        console.log(`gitignore`);
         break;
 
       case 'readme':
-        console.log(`readme`);
         break;
 
       case 'initgit':
-        console.log(`initgit`);
         break;
 
       case 'initnpm':
-        console.log(`initnpm`);
         break;
 
     }
   });
+
+  shell.mkdir([
+    './views',
+    './assets',
+    './assets/lib',
+    './assets/js',
+    './assets/css',
+    './assets/img',
+    './models',
+    './controllers',
+    './routers'
+  ]);
+
 })();
