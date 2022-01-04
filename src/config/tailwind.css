@@ -3,19 +3,18 @@
 @tailwind utilities;
 
 @layer utilities {
-
-  .text-shadow-white{
-    text-shadow: 3px 3px 5px #fff
-  }
-  .text-shadow-black{
-    text-shadow: 3px 3px 5px #000
-  }
-  @variants hover, focus {
-    .text-shadow-white{
-      text-shadow: 3px 3px 5px #fff
-    }
-    .text-shadow-black{
-      text-shadow: 3px 3px 5px #000
-    }
-  }
+	.text-shadow-white {
+		text-shadow: 3px 3px 5px #fff;
+	}
+	.text-shadow-black {
+		text-shadow: 3px 3px 5px #000;
+	}
+	@variants hover, focus {
+		.text-shadow-white {
+			text-shadow: 3px 3px 5px #fff;
+		}
+		.text-shadow-black {
+			text-shadow: 3px 3px 5px #000;
+		}
+	}
 }

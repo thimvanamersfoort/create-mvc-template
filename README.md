@@ -15,11 +15,15 @@ Creates a blank NodeJS MVC-based file template, with included configuration file
 - TailwindCSS config file
 - Snowpack config file
 - Nodemon config file
+- Prettier config file
+- ESLint config file
 - Add `.gitattributes` file
 - Add `.gitignore` file
 - Add `README.md` file
 - Init Git repository
 - Init NPM
+
+
 ### Dependencies:
 - `shelljs`
 - `prompts`

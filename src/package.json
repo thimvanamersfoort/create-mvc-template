@@ -1,49 +1,54 @@
 {
-  "name": "create-mvc-template",
-  "version": "1.0.0",
-  "description": "Creates a blank NodeJS MVC-based file template. With included custom config files.",
-  "main": "app.js",
-  "bin": {
-    "git-credential-editor": "app.js"
-  },
-  "preferGlobal": true,
-  "scripts": {
-    "start": "node app.js",
-    "build": "pkg --out-path ../dist ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thimvanamersfoort/create-mvc-template.git"
-  },
-  "keywords": [
-    "MVC",
-    "Template",
-    "NodeJS"
-  ],
-  "author": "Thim van Amersfoort",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thimvanamersfoort/create-mvc-template/issues"
-  },
-  "homepage": "https://github.com/thimvanamersfoort/create-mvc-template#readme",
-  "pkg": {
-    "scripts": "./*.js",
-    "assets": [
-      "./config/*",
-      "./config"
-    ],
-    "targets": [
-      "latest-linux-x64",
-      "latest-win-x64",
-      "latest-macos-x64"
-    ],
-    "outputPath": "../dist"
-  },
-  "dependencies": {
-    "chalk": "^4.1.2",
-    "prompts": "^2.4.0",
-    "shelljs": "^0.8.4",
-    "shelljs.exec": "^1.1.8"
-  },
-  "devDependencies": {}
+	"name": "create-mvc-template",
+	"version": "1.0.0",
+	"description": "Creates a blank NodeJS MVC-based file template. With included custom config files.",
+	"main": "app.js",
+	"bin": {
+		"git-credential-editor": "app.js"
+	},
+	"preferGlobal": true,
+	"scripts": {
+		"start": "node app.js",
+		"build": "pkg --out-path ../dist .",
+		"format": "prettier --write .",
+		"lint": "eslint --fix-dry-run --ext .js \"**/*.js\" "
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/thimvanamersfoort/create-mvc-template.git"
+	},
+	"keywords": [
+		"MVC",
+		"Template",
+		"NodeJS"
+	],
+	"author": "Thim van Amersfoort",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/thimvanamersfoort/create-mvc-template/issues"
+	},
+	"homepage": "https://github.com/thimvanamersfoort/create-mvc-template#readme",
+	"pkg": {
+		"scripts": "./*.js",
+		"assets": [
+			"./config/*",
+			"./config"
+		],
+		"targets": [
+			"latest-linux-x64",
+			"latest-win-x64",
+			"latest-macos-x64"
+		],
+		"outputPath": "../dist"
+	},
+	"dependencies": {
+		"chalk": "^4.1.2",
+		"prompts": "^2.4.0",
+		"shelljs": "^0.8.4",
+		"shelljs.exec": "^1.1.8"
+	},
+	"devDependencies": {
+		"eslint": "^8.6.0",
+		"prettier": "^2.5.1"
+	}
 }

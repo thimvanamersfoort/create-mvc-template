@@ -1,6 +1,6 @@
 {
-  "ext": "js, html, json",
-  "events": {
-    "restart": "npm run build-css"
-  }
+	"ext": "js, html, json",
+	"events": {
+		"restart": "npm run build-css"
+	}
 }
