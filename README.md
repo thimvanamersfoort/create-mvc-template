@@ -29,3 +29,4 @@ All dependencies are built-in into the application. To build the application, us
 - [Prompts](github.com/terkelg/prompts)
 - [Chalk](github.com/chalk/chalk)
 - [Node FS](https://nodejs.org/api/fs.html)
+- [PKG] (https://github.com/vercel/pkg)
