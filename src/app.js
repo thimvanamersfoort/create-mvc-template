@@ -5,55 +5,109 @@ const prompts = require('prompts');
 const chalk = require('chalk');
 
 (async () => {
-	const question = {
-		type: 'multiselect',
-		name: 'includes',
-		message: 'Please pick the options that you want to configure:',
-		choices: [
-			{ title: 'TailwindCSS config file', value: 'tailwindcss' },
-			{ title: 'Snowpack config file', value: 'snowpack' },
-			{ title: 'Nodemon config file', value: 'nodemon' },
-			{ title: 'ESLint config file', value: 'eslint', selected: true },
-			{ title: 'Prettier config file', value: 'prettier', selected: true },
-			{ title: 'Add .gitattributes', value: 'gitattributes' },
-			{ title: 'Add .gitignore', value: 'gitignore', selected: true },
-			{ title: 'Add README', value: 'readme', selected: true },
-		],
-		initial: null,
-		instructions: false,
-	};
+	const questions = [
+    {
+      type: 'multiselect',
+      name: 'folders',
+      message: 'Please pick the folders you want to add:',
+      choices: [
+        { title: '/views', value: 'views', selected: true },
+        { title: '/assets', value: 'assets', selected: true },
+        { title: '/models', value: 'models' },
+        { title: '/controllers', value: 'controllers'},
+        { title: '/routers', value: 'routers'},
+        { title: '/app.js', value: 'app.js'}
+      ],
+      initial: null,
+      instructions: false,
+    },
+    {
+      type: 'multiselect',
+      name: 'configs',
+      message: 'Please pick the options that you want to configure:',
+      choices: [
+        { title: 'TailwindCSS config file', value: 'tailwindcss' },
+        { title: 'Snowpack config file', value: 'snowpack' },
+        { title: 'Nodemon config file', value: 'nodemon' },
+        { title: 'ESLint config file', value: 'eslint', selected: true },
+        { title: 'Prettier config file', value: 'prettier', selected: true },
+        { title: 'Add .gitattributes', value: 'gitattributes' },
+        { title: 'Add .gitignore', value: 'gitignore', selected: true },
+        { title: 'Add README', value: 'readme', selected: true },
+      ],
+      initial: null,
+      instructions: false,
+    }
+  ];
 
-	var response = await prompts(question);
-	response = response.includes;
+	var response = await prompts(questions);
+	var folders = response.folders;
+  var configs = response.configs;
 
 	console.log('\r\n' + chalk.green.bold('Installing your packages...'));
 
-	shell.mkdir('-p', [
-		'./views',
-		'./assets/lib',
-		'./assets/js',
-		'./assets/css',
-		'./assets/img',
-		'./models',
-		'./controllers',
-		'./routers',
-	]);
+  folders.forEach(async (element) => {
+		switch (element) { 
+      
+      case 'views': {
+        shell.mkdir('-p', ['./views']);
+        await fs.writeFile('./views/.gitignore', '');
+        await fs.writeFile('./views/index.html', '');
 
-	await fs.writeFile('./views/.gitignore', '');
-	await fs.writeFile('./assets/lib/.gitignore', '');
-	await fs.writeFile('./assets/css/.gitignore', '');
-	await fs.writeFile('./assets/js/.gitignore', '');
-	await fs.writeFile('./assets/img/.gitignore', '');
-	await fs.writeFile('./models/.gitignore', '');
-	await fs.writeFile('./controllers/.gitignore', '');
-	await fs.writeFile('./routers/.gitignore', '');
-	await fs.writeFile('./app.js', '');
+        break;
+      }
+
+      case 'assets': {
+        shell.mkdir('-p', [
+          './assets/lib',
+          './assets/js',
+          './assets/css',
+          './assets/img',
+        ]);
+
+        await fs.writeFile('./assets/lib/.gitignore', '')
+        await fs.writeFile('./assets/css/.gitignore', '')
+        await fs.writeFile('./assets/js/.gitignore', '')
+        await fs.writeFile('./assets/img/.gitignore', '')
+
+        break;
+      }
+
+      case 'models': {
+        shell.mkdir('-p', ['./models']);
+        await fs.writeFile('./models/.gitignore', '');
+
+        break;
+      }
+
+      case 'controllers': {
+        shell.mkdir('-p', ['./controllers']);
+        await fs.writeFile('./controllers/.gitignore', '');
+
+        break;
+      }
+
+      case 'routers': {
+        shell.mkdir('-p', ['./routers']);
+        await fs.writeFile('./routers/.gitignore', '');
+        
+        break;
+      }
+
+      case 'app.js': {
+        await fs.writeFile('./app.js', '');
+
+        break;
+      }
+
+    } 
+  });
 
 	if (exec('npm init -y').code !== 0) {
 		console.log(chalk.red.bold('Error initialising NPM package'));
 	}
 
-	response.forEach(async (element) => {
+	configs.forEach(async (element) => {
 		switch (element) {
 			case 'tailwindcss': {
 				shell.mkdir('-p', ['./src']);
@@ -149,4 +203,6 @@ const chalk = require('chalk');
 
 	packageJSON.scripts = scripts;
 	await fs.writeFile('./package.json', JSON.stringify(packageJSON));
+
+  console.log(chalk.green.bold.underline('Packages installed succesfully.'));
 })();

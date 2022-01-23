@@ -4,7 +4,7 @@
 	"description": "Creates a blank NodeJS MVC-based file template. With included custom config files.",
 	"main": "app.js",
 	"bin": {
-		"git-credential-editor": "app.js"
+		"create-mvc-template": "app.js"
 	},
 	"preferGlobal": true,
 	"scripts": {

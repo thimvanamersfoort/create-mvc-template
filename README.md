@@ -2,14 +2,11 @@
 Creates a blank NodeJS MVC-based file template, with included configuration files. This is a personal project, and configurations / file structures are purely based on personal preference.
 
 ### How the app works:
-1. User input to detect which configuration files to include.
-2. Read files from application memory
-3. Paste file contents in new files (maybe with powershell commands)
-4. Create file model
+1. User input to detect which folders and configuration files to include.
+2. Reads config files from application binary memory.
+3. Pastes file contents in new files (Created with Node `FS` module).
+4. Initializes NPM and Git.
 
-### To-Do:
-- [x] Map *prompts* response to usable array
-- [ ] Copying files to location --> Write file or copy?
 ### Add-ons:
 
 - TailwindCSS config file
@@ -25,6 +22,10 @@ Creates a blank NodeJS MVC-based file template, with included configuration file
 
 
 ### Dependencies:
-- `shelljs`
-- `prompts`
+All dependencies are built-in into the application. To build the application, use the `npm run build` command, or use the pre-built applications in the `/dist` folder.
 
+- [ShellJS](github.com/shelljs/shelljs)
+- [ShellJS Exec (*Improved speed*)](github.com/danday74/shelljs.exec)
+- [Prompts](github.com/terkelg/prompts)
+- [Chalk](github.com/chalk/chalk)
+- [Node FS](https://nodejs.org/api/fs.html)
